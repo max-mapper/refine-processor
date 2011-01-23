@@ -1,0 +1,23 @@
+!!!
+%html
+  %body
+    - if @error
+      %h2.error= "Error: #{@error}. Please try again"
+    %form#file-upload-form{"accept-charset" => "UTF-8", :action => "/upload", :enctype => "multipart/form-data", :method => "post"}
+      %h1 Google Refine Data Processor
+      %table.form-table
+        %tbody
+          %tr
+            %th
+              %label{:for => "project-file"} Data file:
+            %td
+              %input#project-file-input{:name => "project-file", :type => "file"}
+          %tr
+            %th
+              %label{:for => "history-json"} Operation history JSON:
+            %td
+              %textarea#history-json-input{:style => "width: 400px; font-family: Courier", :name => "history-json", :rows => "20", :type => "text"}
+          %tr
+            %td
+            %td
+              %input#upload-file-button.button.button-primary{:type => "submit", :value => "Process data"}

@@ -1,0 +1,47 @@
+h1. Google Refine Processor
+
+h2. A programmatic data processing API on top of Google Refine
+
+This is a small Ruby server that interfaces on top of a Google Refine server instance and does data processing. Required as input is a data file and a JSON operation history and the output is a CSV of the cleaned up data.
+
+If you haven't played with Google Refine, check out the amazing "demo videos":http://code.google.com/p/google-refine/.
+
+Refine will record your batch data transformations (refinements?) and let you export them as a JSON object. This small web server will combine those JSON operations with a compatible incoming data stream and use Refine to headlessly clean up the data.
+
+This project uses the "google-refine":https://github.com/maxogden/refine-ruby Ruby gem.
+
+h2. Install
+
+First, download and run "Google Refine":http://code.google.com/p/google-refine/wiki/Downloads
+
+<pre>
+  <code>
+    git clone git://github.com/maxogden/refine-processor.git && cd refine-processor
+    gem install sinatra haml google-refine unicorn
+    unicorn config.ru
+    open http://localhost:8080
+  </code>
+</pre>
+
+h2. License
+
+Copyright (c) 2011 Max Ogden
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
